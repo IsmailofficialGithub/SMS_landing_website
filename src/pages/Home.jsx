@@ -246,6 +246,130 @@ const Reviews = () => {
   )
 }
 
+const ProjectCard = ({ proj, idx, onClick }) => {
+  const [hovered, setHovered] = useState(false);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const cardRef = React.useRef(null);
+
+  const handleMouseMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 14;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -14;
+    setTilt({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(false);
+    setTilt({ x: 0, y: 0 });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={handleMouseLeave}
+      onMouseMove={handleMouseMove}
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-80px' }}
+      transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      animate={{
+        rotateX: tilt.y,
+        rotateY: tilt.x,
+        scale: hovered ? 1.03 : 1,
+        transition: { type: 'spring', stiffness: 300, damping: 20 }
+      }}
+      style={{
+        position: 'relative', borderRadius: '20px', overflow: 'hidden',
+        cursor: 'pointer', height: '380px', transformStyle: 'preserve-3d',
+        boxShadow: hovered
+          ? '0 30px 60px rgba(0,102,255,0.25), 0 0 0 1px rgba(0,163,255,0.2)'
+          : '0 10px 30px rgba(0,0,0,0.12)',
+        transition: 'box-shadow 0.4s ease',
+      }}
+    >
+      {/* Image */}
+      <motion.img
+        src={proj.image}
+        alt={proj.title}
+        animate={{ scale: hovered ? 1.1 : 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+        onError={(e) => { e.target.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/300px-No_image_available.svg.png'; }}
+      />
+
+      {/* Always-visible dark gradient at bottom */}
+      <div style={{
+        position: 'absolute', bottom: 0, left: 0, right: 0,
+        height: '60%',
+        background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)',
+        pointerEvents: 'none',
+      }} />
+
+      {/* Hover glow overlay */}
+      <motion.div
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        style={{
+          position: 'absolute', inset: 0,
+          background: 'linear-gradient(135deg, rgba(0,102,255,0.15) 0%, rgba(0,163,255,0.1) 100%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Animated border glow */}
+      <motion.div
+        animate={{ opacity: hovered ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        style={{
+          position: 'absolute', inset: 0, borderRadius: '20px',
+          border: '1px solid rgba(0,163,255,0.5)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Project number badge */}
+      <div style={{
+        position: 'absolute', top: '20px', left: '20px',
+        background: 'rgba(0,102,255,0.85)', color: '#fff',
+        fontSize: '12px', fontWeight: 700, letterSpacing: '1px',
+        padding: '4px 12px', borderRadius: '20px',
+        backdropFilter: 'blur(6px)',
+      }}>
+        {String(idx + 1).padStart(2, '0')}
+      </div>
+
+      {/* Text content - slides up on hover */}
+      <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '28px' }}>
+        <h3 style={{
+          color: '#fff', fontSize: '22px', fontWeight: 700,
+          fontFamily: 'var(--font-heading)', marginBottom: '8px',
+          textShadow: '0 2px 8px rgba(0,0,0,0.3)',
+        }}>
+          {proj.title}
+        </h3>
+
+        <motion.div
+          animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 12 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
+        >
+          <p style={{ color: 'rgba(255,255,255,0.82)', fontSize: '14px', lineHeight: 1.6, marginBottom: '16px', margin: '0 0 16px' }}>
+            {proj.desc.substring(0, 90)}...
+          </p>
+          <span style={{
+            display: 'inline-flex', alignItems: 'center', gap: '6px',
+            color: 'var(--brand-cyan)', fontWeight: 600, fontSize: '14px',
+            letterSpacing: '0.5px',
+          }}>
+            View Project <span style={{ fontSize: '18px' }}>→</span>
+          </span>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
 const Projects = () => {
   const navigate = useNavigate();
 
@@ -258,38 +382,75 @@ const Projects = () => {
     { title: "Khaadi - Hyderabad", desc: "Continuing our strong partnership with Khaadi, we deployed another massive SMD Video Wall at their Hyderabad flagship store. Providing brilliant, bezel-less visuals.", image: "/image/projects/Project6/image.png" }
   ]
 
-  const galleryCards = projectList.map((proj, idx) => ({
-    title: proj.title,
-    description: proj.desc.substring(0, 100) + '...',
-    imageSrc: proj.image,
-    buttonText: "View Project",
-    onClick: () => navigate(`/project/${idx}`)
-  }));
-
   return (
-    <motion.section
-      className="projects bg-transparent" id="projects"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8 }}
-      style={{ padding: '120px 0' }}
-    >
-      <div className="container" style={{ maxWidth: '1400px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 className="section-title" style={{ fontSize: '48px', color: 'var(--text-dark)' }}>Featured Projects</h2>
-          <p className="section-subtitle" style={{ fontSize: '20px', color: '#333' }}>Take a look at some of our recent installations and see how we help brands stand out.</p>
+    <section id="projects" style={{ padding: '120px 0', backgroundColor: '#f8fafc' }}>
+      <div className="container" style={{ maxWidth: '1300px' }}>
+
+        {/* Section Header */}
+        <motion.div
+          style={{ textAlign: 'center', marginBottom: '70px' }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-60px' }}
+          transition={{ duration: 0.7 }}
+        >
+          <motion.span
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{
+              display: 'inline-block', fontSize: '12px', fontWeight: 700,
+              letterSpacing: '3px', textTransform: 'uppercase',
+              color: 'var(--brand-blue)', background: 'rgba(0,102,255,0.08)',
+              padding: '6px 18px', borderRadius: '20px', marginBottom: '16px',
+              border: '1px solid rgba(0,102,255,0.15)',
+            }}
+          >
+            Our Work
+          </motion.span>
+          <h2 style={{ fontSize: '48px', fontWeight: 800, color: 'var(--text-dark)', fontFamily: 'var(--font-heading)', lineHeight: 1.1, marginBottom: '16px' }}>
+            Featured Projects
+          </h2>
+          <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto', lineHeight: 1.6 }}>
+            Take a look at some of our recent installations and see how we help brands stand out.
+          </p>
+        </motion.div>
+
+        {/* Grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '24px',
+          perspective: '1200px',
+        }}>
+          {projectList.map((proj, idx) => (
+            <ProjectCard
+              key={idx}
+              proj={proj}
+              idx={idx}
+              onClick={() => navigate(`/project/${idx}`)}
+            />
+          ))}
         </div>
 
-        <InteractiveCardGallery
-          cards={galleryCards}
-          columns={2}
-          cardHeight="h-[450px]"
-        />
+        {/* View All Button */}
+        <motion.div
+          style={{ textAlign: 'center', marginTop: '60px' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          <a href="/#projects" className="btn btn-outline" style={{ borderRadius: '50px', padding: '14px 40px', fontSize: '15px', fontWeight: 600 }}>
+            View All Projects →
+          </a>
+        </motion.div>
       </div>
-    </motion.section>
+    </section>
   )
 }
+
 
 const ProcessSection = () => {
   return (

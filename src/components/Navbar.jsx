@@ -47,22 +47,22 @@ const Navbar = ({ openQuote }) => {
           </div>
           <ul className="nav-links">
             <li>
-              <a href="/#" className={location.pathname === '/' && !location.hash ? 'active' : ''}>Home</a>
+              <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
             </li>
             <li>
-              <a href="/#products">Products</a>
+              <Link to="/products" className={location.pathname === '/products' ? 'active' : ''}>Products</Link>
             </li>
             <li>
-              <a href="/#blog">Blog</a>
+              <Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>Blog</Link>
             </li>
             <li>
-              <a href="/#projects">Projects</a>
+              <Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''}>Projects</Link>
             </li>
             <li>
-              <a href="/#about">About Us</a>
+              <Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About Us</Link>
             </li>
             <li>
-              <a href="/contact">Contact Us</a>
+              <Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Link>
             </li>
           </ul>
         </div>
