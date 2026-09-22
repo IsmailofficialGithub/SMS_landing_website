@@ -53,7 +53,7 @@ const CardItem = ({
         <p className="mt-2 italic text-sm !text-white text-center opacity-90">{description}</p>
         <div className="overflow-hidden mt-4">
           <button
-            className={`transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 px-6 py-2 bg-[var(--brand-blue)] text-white font-bold text-xs uppercase tracking-wide rounded-lg hover:opacity-90 focus:outline-none`}
+            className={`cursor-pointer transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 px-6 py-2 bg-[var(--brand-blue)] text-white font-bold text-xs uppercase tracking-wide rounded-lg hover:opacity-90 focus:outline-none`}
             onClick={handleClick}
           >
             {buttonText}
