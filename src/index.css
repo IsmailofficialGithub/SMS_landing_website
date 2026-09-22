@@ -233,10 +233,12 @@ img {
 }
 
 .hero-content {
-  max-width: 700px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-top: auto;
-  /* Pushes content down towards middle */
-  margin-bottom: 60px;
+  margin-bottom: 24px;
 }
 
 .hero-tag {
@@ -245,6 +247,7 @@ img {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #94a3b8;
+  margin-top: 80px;
   margin-bottom: 20px;
   display: block;
   opacity: 0.4;
@@ -305,35 +308,34 @@ img {
   padding: 14px 32px;
 }
 
-/* Hero Bottom Features */
 .hero-features {
   display: flex;
-  gap: 40px;
-  margin-top: auto;
-  /* Pushes to absolute bottom */
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 40px;
+  gap: 36px;
+  margin-top: 0;
+  padding-top: 24px;
   padding-bottom: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .hero-feature {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  border-right: 1px solid rgba(255, 255, 255, 0.1);
-  padding-right: 20px;
+  gap: 8px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  padding-right: 24px;
 }
 
 .hero-feature:last-child {
   border-right: none;
+  padding-right: 0;
 }
 
 @media (max-width: 900px) {
   .hero-features {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
+    gap: 24px;
   }
 
   .hero-feature {
@@ -349,21 +351,27 @@ img {
 }
 
 .hero-feature-icon {
-  color: var(--brand-cyan);
-  margin-bottom: 5px;
+  color: #29ebf9;
+  filter: drop-shadow(0 2px 8px rgba(41, 235, 249, 0.45));
+  margin-bottom: 4px;
 }
 
 .hero-feature h4 {
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  margin-bottom: 4px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
 }
 
 .hero-feature p {
-  color: #94a3b8;
-  font-size: 13px;
+  color: #f1f5f9;
+  font-size: 14px;
+  font-weight: 400;
   margin-bottom: 0;
-  line-height: 1.4;
+  line-height: 1.5;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.75);
 }
 
 /* Scroll Down indicator */

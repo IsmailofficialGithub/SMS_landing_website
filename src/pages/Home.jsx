@@ -11,7 +11,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '..
 // Navbar moved to global App level
 
 const Hero = ({ openQuote }) => {
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef(null);
 
   const toggleMute = () => {
@@ -30,7 +30,6 @@ const Hero = ({ openQuote }) => {
         loop
         muted={isMuted}
         playsInline
-        poster="/image/hero_bg.jpg"
       >
         <source src="/image/Video.mp4" type="video/mp4" />
       </video>
@@ -46,9 +45,7 @@ const Hero = ({ openQuote }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <span className="hero-tag">NEXT-GENERATION VISUAL TECHNOLOGY</span>
-          <h1>Command Attention.<br />Deliver <span>Impact.</span></h1>
-          <p>Transform any environment with our ultra-bright, high-definition LED & SMD displays. Built for shopping malls, retail spaces, and massive outdoor advertising. Available for permanent installation or rental.</p>
+          {/* Removed text block per user request */}
           <div className="hero-actions">
             <button className="btn btn-primary" onClick={openQuote}>Get a Quote <ArrowRight size={16} style={{ marginLeft: '8px' }} /></button>
             <button className="btn btn-outline"><Play size={16} style={{ marginRight: '8px', fill: 'currentColor' }} /> Watch Video</button>
