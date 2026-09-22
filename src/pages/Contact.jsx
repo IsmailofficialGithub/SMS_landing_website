@@ -29,21 +29,124 @@ export default function Contact() {
   return (
     <div style={{ backgroundColor: "var(--bg-white)", minHeight: "100vh", paddingBottom: "100px" }}>
       <div style={{
-        background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
-        padding: "140px 0 80px",
+        position: "relative",
+        background: "radial-gradient(ellipse 80% 60% at 50% -20%, rgba(0, 102, 255, 0.45) 0%, rgba(0, 163, 255, 0.15) 40%, rgba(5, 11, 24, 0.98) 85%, #050b18 100%)",
+        padding: "130px 20px 85px",
         textAlign: "center",
         color: "#fff",
+        overflow: "hidden",
+        borderBottom: "1px solid rgba(0, 163, 255, 0.18)",
       }}>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <span style={{ fontSize: "12px", fontWeight: 700, letterSpacing: "3px", textTransform: "uppercase", color: "#00a3ff", display: "block", marginBottom: "16px" }}>
-            GET IN TOUCH
-          </span>
-          <h1 style={{ fontSize: "52px", fontWeight: 800, fontFamily: "var(--font-heading)", lineHeight: 1.1, marginBottom: "20px" }}>
-            Contact <span style={{ background: "linear-gradient(to right, #fff, #00a3ff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Us</span>
+        <div style={{
+          position: "absolute",
+          top: "-120px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "700px",
+          height: "350px",
+          background: "radial-gradient(circle, rgba(0, 163, 255, 0.3) 0%, rgba(0, 102, 255, 0) 70%)",
+          filter: "blur(60px)",
+          pointerEvents: "none",
+        }} />
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          style={{ position: "relative", zIndex: 2 }}
+        >
+          <div style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "rgba(0, 163, 255, 0.12)",
+            border: "1px solid rgba(0, 163, 255, 0.35)",
+            boxShadow: "0 0 24px rgba(0, 163, 255, 0.2)",
+            padding: "8px 22px",
+            borderRadius: "999px",
+            marginBottom: "22px",
+          }}>
+            <span style={{
+              width: "8px",
+              height: "8px",
+              borderRadius: "50%",
+              backgroundColor: "#29ebf9",
+              boxShadow: "0 0 10px #29ebf9",
+            }} />
+            <span style={{
+              fontSize: "12px",
+              fontWeight: 700,
+              letterSpacing: "2.5px",
+              textTransform: "uppercase",
+              color: "#29ebf9",
+            }}>
+              GET IN TOUCH
+            </span>
+          </div>
+
+          <h1 style={{
+            fontSize: "clamp(40px, 6vw, 66px)",
+            fontWeight: 900,
+            fontFamily: "var(--font-heading)",
+            lineHeight: 1.1,
+            marginBottom: "20px",
+            letterSpacing: "-1.5px",
+          }}>
+            Let's Talk About Your{" "}
+            <span style={{
+              background: "linear-gradient(135deg, #ffffff 10%, #29ebf9 60%, #0066ff 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              display: "inline-block",
+            }}>
+              Display Project.
+            </span>
           </h1>
-          <p style={{ fontSize: "18px", color: "#94a3b8", maxWidth: "550px", margin: "0 auto", lineHeight: 1.6 }}>
-            Ready to transform your space? Our team is available to discuss your project requirements.
+
+          <p style={{
+            fontSize: "clamp(16px, 2vw, 19px)",
+            color: "#cbd5e1",
+            maxWidth: "640px",
+            margin: "0 auto 36px",
+            lineHeight: 1.65,
+          }}>
+            Ready to transform your space? Our display engineers and AV consultants are available to provide custom solutions, technical specs, and fast quotes.
           </p>
+
+          <div style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "14px",
+            flexWrap: "wrap",
+          }}>
+            {[
+              "Fast 2-Hour Response",
+              "Free On-Site Survey & Specs",
+              "Official Pakistan Distributor",
+            ].map((text, idx) => (
+              <div
+                key={idx}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  background: "rgba(255, 255, 255, 0.06)",
+                  backdropFilter: "blur(10px)",
+                  WebkitBackdropFilter: "blur(10px)",
+                  border: "1px solid rgba(255, 255, 255, 0.14)",
+                  borderRadius: "30px",
+                  padding: "7px 18px",
+                  fontSize: "13px",
+                  color: "#f1f5f9",
+                  fontWeight: 500,
+                }}
+              >
+                <CheckCircle size={14} color="#29ebf9" />
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
         </motion.div>
       </div>
 
@@ -52,10 +155,10 @@ export default function Contact() {
 
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
             <h2 style={{ fontSize: "28px", fontWeight: 700, color: "var(--text-dark)", marginBottom: "10px", fontFamily: "var(--font-heading)" }}>
-              Let"s Talk
+              Let's Talk
             </h2>
             <p style={{ color: "var(--text-muted)", lineHeight: 1.7, marginBottom: "40px" }}>
-              Whether you need a quote, a technical question, or want to schedule a site survey � we are here.
+              Whether you need a quote, a technical question, or want to schedule a site survey — we are here.
             </p>
 
             {[

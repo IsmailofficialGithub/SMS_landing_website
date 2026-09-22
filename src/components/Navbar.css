@@ -7,7 +7,7 @@
 }
 
 .top-bar {
-  background-color: #a31d1d; /* Deep Red from reference */
+  background: linear-gradient(90deg, #0050d8 0%, var(--brand-blue) 50%, #0077ff 100%);
   color: white;
   font-size: 13px;
   padding: 8px 0;
@@ -93,7 +93,7 @@
 
 .nav-links li a:hover,
 .nav-links li a.active {
-  color: #a31d1d;
+  color: var(--brand-blue);
 }
 
 .nav-links li a.active::after {
@@ -103,12 +103,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #00a3ff; /* Cyan underline */
-}
-
-/* Specific red styling for Blog like in reference */
-.nav-links li:nth-child(3) a {
-  color: #a31d1d;
+  background-color: var(--brand-cyan);
 }
 
 /* Reset Hero padding since navbar is no longer absolute */
