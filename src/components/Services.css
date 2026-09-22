@@ -1,0 +1,80 @@
+.services-section {
+  position: relative;
+  background-color: var(--bg-secondary);
+}
+
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2rem, 3vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 70%);
+  z-index: -1;
+}
+
+/* Specific glows on hover */
+.glow-cyan:hover {
+  box-shadow: 0 10px 40px rgba(0, 255, 255, 0.15);
+  border-color: rgba(0, 255, 255, 0.3);
+}
+
+.glow-magenta:hover {
+  box-shadow: 0 10px 40px rgba(255, 0, 255, 0.15);
+  border-color: rgba(255, 0, 255, 0.3);
+}
+
+.glow-yellow:hover {
+  box-shadow: 0 10px 40px rgba(255, 255, 0, 0.15);
+  border-color: rgba(255, 255, 0, 0.3);
+}
+
+.glow-green:hover {
+  box-shadow: 0 10px 40px rgba(0, 255, 0, 0.15);
+  border-color: rgba(0, 255, 0, 0.3);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.service-description {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
