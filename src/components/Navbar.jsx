@@ -62,7 +62,7 @@ const Navbar = ({ openQuote }) => {
               <a href="/#about">About Us</a>
             </li>
             <li>
-              <a href="#" onClick={(e) => { e.preventDefault(); openQuote(); }}>Contact Us</a>
+              <a href="/contact">Contact Us</a>
             </li>
           </ul>
         </div>

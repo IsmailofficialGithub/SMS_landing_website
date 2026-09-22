@@ -332,13 +332,21 @@ const FaqSection = () => {
           <p className="section-subtitle">Everything you need to know about our digital display solutions.</p>
         </div>
         
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible style={{ width: '100%' }}>
           {faqs.map((faq, i) => (
-            <AccordionItem key={i} value={`item-${i}`} style={{ borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
-              <AccordionTrigger style={{ fontSize: '18px', color: 'var(--text-dark)', padding: '20px 0' }}>
+            <AccordionItem 
+              key={i} 
+              value={`item-${i}`} 
+              className="!border-b !border-gray-200"
+              style={{ borderRadius: 0, backgroundColor: 'transparent' }}
+            >
+              <AccordionTrigger 
+                className="!w-full !text-left !no-underline hover:!no-underline !py-5"
+                style={{ fontSize: '18px', fontWeight: '600', color: 'var(--text-dark)' }}
+              >
                 {faq.q}
               </AccordionTrigger>
-              <AccordionContent style={{ color: '#475569', lineHeight: '1.6', fontSize: '16px', paddingBottom: '20px' }}>
+              <AccordionContent style={{ color: '#475569', lineHeight: '1.8', fontSize: '16px' }}>
                 {faq.a}
               </AccordionContent>
             </AccordionItem>
