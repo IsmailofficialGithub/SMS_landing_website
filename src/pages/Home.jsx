@@ -317,6 +317,8 @@ const ProcessSection = () => {
 }
 
 const FaqSection = () => {
+  const [openIndex, setOpenIndex] = useState(null);
+
   const faqs = [
     { q: "Do you provide outdoor waterproof screens?", a: "Yes! Our outdoor SMD screens are IP65 rated, fully waterproof, and feature ultra-high brightness (up to 7000 nits) to combat direct sunlight." },
     { q: "How long does installation usually take?", a: "For standard indoor video walls, installation typically takes 2-4 days. Large outdoor structural projects can take 1-2 weeks depending on fabrication requirements." },
@@ -327,35 +329,67 @@ const FaqSection = () => {
   return (
     <section className="section" style={{ backgroundColor: 'var(--bg-white)', padding: '100px 0' }}>
       <div className="container" style={{ maxWidth: '800px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 className="section-title">Frequently Asked Questions</h2>
           <p className="section-subtitle">Everything you need to know about our digital display solutions.</p>
         </div>
-        
-        <Accordion type="single" collapsible style={{ width: '100%' }}>
-          {faqs.map((faq, i) => (
-            <AccordionItem 
-              key={i} 
-              value={`item-${i}`} 
-              className="!border-b !border-gray-200"
-              style={{ borderRadius: 0, backgroundColor: 'transparent' }}
-            >
-              <AccordionTrigger 
-                className="!w-full !text-left !no-underline hover:!no-underline !py-5"
-                style={{ fontSize: '18px', fontWeight: '600', color: 'var(--text-dark)' }}
-              >
-                {faq.q}
-              </AccordionTrigger>
-              <AccordionContent style={{ color: '#475569', lineHeight: '1.8', fontSize: '16px' }}>
-                {faq.a}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {faqs.map((faq, i) => {
+            const isOpen = openIndex === i;
+            return (
+              <div key={i} style={{ borderBottom: '1px solid #e2e8f0' }}>
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : i)}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    padding: '24px 0',
+                    background: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
+                    textAlign: 'left',
+                    fontSize: '18px',
+                    fontWeight: '600',
+                    color: 'var(--text-dark)',
+                    gap: '16px',
+                  }}
+                >
+                  <span>{faq.q}</span>
+                  <span style={{
+                    flexShrink: 0,
+                    width: '24px',
+                    height: '24px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '22px',
+                    fontWeight: '300',
+                    color: 'var(--brand-blue)',
+                    transition: 'transform 0.3s ease',
+                    transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+                  }}>+</span>
+                </button>
+                <div style={{
+                  overflow: 'hidden',
+                  maxHeight: isOpen ? '200px' : '0px',
+                  transition: 'max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                }}>
+                  <p style={{ color: '#475569', lineHeight: '1.8', fontSize: '16px', paddingBottom: '24px', margin: 0 }}>
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   )
 }
+
 
 const CallToAction = ({ openQuote }) => {
   return (
