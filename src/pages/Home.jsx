@@ -4,7 +4,9 @@ import { motion } from 'framer-motion'
 import FloatingContact from '../components/FloatingContact'
 import Hyperspeed from '../components/Hyperspeed'
 import { Link, useNavigate } from 'react-router-dom'
+import BeamCircle from '../components/lightswind/beam-circle'
 import { InteractiveCardGallery } from '../components/lightswind/interactive-card-gallery'
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../components/lightswind/accordion'
 
 // Navbar moved to global App level
 
@@ -203,7 +205,7 @@ const Reviews = () => {
   ];
 
   return (
-    <section className="reviews section bg-light-gray">
+    <section id="blog" className="reviews section bg-light-gray">
       <div className="container">
         <div className="reviews-header">
           <div className="avatar-group-container">
@@ -315,25 +317,33 @@ const ProcessSection = () => {
 }
 
 const FaqSection = () => {
+  const faqs = [
+    { q: "Do you provide outdoor waterproof screens?", a: "Yes! Our outdoor SMD screens are IP65 rated, fully waterproof, and feature ultra-high brightness (up to 7000 nits) to combat direct sunlight." },
+    { q: "How long does installation usually take?", a: "For standard indoor video walls, installation typically takes 2-4 days. Large outdoor structural projects can take 1-2 weeks depending on fabrication requirements." },
+    { q: "Can I update the screen content remotely?", a: "Absolutely. We provide cloud-based digital signage software (like NovaStar) that allows you to manage content from anywhere in the world using your laptop or smartphone." },
+    { q: "What happens if a module fails?", a: "We provide comprehensive warranties on all our displays. Thanks to front-serviceable cabinets, our technicians can swap out a faulty module in minutes without dismantling the screen." }
+  ];
+
   return (
     <section className="section" style={{ backgroundColor: 'var(--bg-white)', padding: '100px 0' }}>
       <div className="container" style={{ maxWidth: '800px' }}>
-        <h2 className="section-title">Frequently Asked Questions</h2>
-        <p className="section-subtitle">Everything you need to know about our digital display solutions.</p>
-        
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '40px' }}>
-          {[
-            { q: "Do you provide outdoor waterproof screens?", a: "Yes! Our outdoor SMD screens are IP65 rated, fully waterproof, and feature ultra-high brightness (up to 7000 nits) to combat direct sunlight." },
-            { q: "How long does installation usually take?", a: "For standard indoor video walls, installation typically takes 2-4 days. Large outdoor structural projects can take 1-2 weeks depending on fabrication requirements." },
-            { q: "Can I update the screen content remotely?", a: "Absolutely. We provide cloud-based digital signage software (like NovaStar) that allows you to manage content from anywhere in the world using your laptop or smartphone." },
-            { q: "What happens if a module fails?", a: "We provide comprehensive warranties on all our displays. Thanks to front-serviceable cabinets, our technicians can swap out a faulty module in minutes without dismantling the screen." }
-          ].map((faq, i) => (
-            <div key={i} style={{ border: '1px solid rgba(0,0,0,0.1)', borderRadius: '12px', padding: '25px', backgroundColor: 'var(--bg-white)' }}>
-              <h4 style={{ fontSize: '18px', color: 'var(--text-dark)', marginBottom: '10px' }}>{faq.q}</h4>
-              <p style={{ color: '#475569', margin: 0, lineHeight: '1.6' }}>{faq.a}</p>
-            </div>
-          ))}
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2 className="section-title">Frequently Asked Questions</h2>
+          <p className="section-subtitle">Everything you need to know about our digital display solutions.</p>
         </div>
+        
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((faq, i) => (
+            <AccordionItem key={i} value={`item-${i}`} style={{ borderBottom: '1px solid rgba(0,0,0,0.1)' }}>
+              <AccordionTrigger style={{ fontSize: '18px', color: 'var(--text-dark)', padding: '20px 0' }}>
+                {faq.q}
+              </AccordionTrigger>
+              <AccordionContent style={{ color: '#475569', lineHeight: '1.6', fontSize: '16px', paddingBottom: '20px' }}>
+                {faq.a}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
       </div>
     </section>
   )
