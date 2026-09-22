@@ -47,22 +47,22 @@ const Navbar = ({ openQuote }) => {
           </div>
           <ul className="nav-links">
             <li>
-              <Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link>
-            </li>
-            <li className="dropdown">
-              <Link to="#">Products <ChevronDown size={14} style={{marginLeft: '2px', verticalAlign: 'middle'}} /></Link>
+              <a href="/#" className={location.pathname === '/' && !location.hash ? 'active' : ''}>Home</a>
             </li>
             <li>
-              <Link to="#">Blog</Link>
+              <a href="/#products">Products</a>
             </li>
             <li>
-              <Link to="#">Projects</Link>
+              <a href="/#blog">Blog</a>
             </li>
             <li>
-              <Link to="#">About Us</Link>
+              <a href="/#projects">Projects</a>
             </li>
-            <li className="dropdown">
-              <Link to="#" onClick={(e) => { e.preventDefault(); openQuote(); }}>Contact Us <ChevronDown size={14} style={{marginLeft: '2px', verticalAlign: 'middle'}} /></Link>
+            <li>
+              <a href="/#about">About Us</a>
+            </li>
+            <li>
+              <a href="#" onClick={(e) => { e.preventDefault(); openQuote(); }}>Contact Us</a>
             </li>
           </ul>
         </div>
