@@ -126,7 +126,7 @@ const Brands = () => {
 
 const Products = () => {
   return (
-    <section className="bento-section">
+    <section id="products" className="bento-section">
       <div className="container">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -425,10 +425,27 @@ const Footer = () => (
 
 // QuoteModal moved to global App level
 
+const AboutUs = () => {
+  return (
+    <section id="about" className="section bg-light-gray" style={{ padding: '100px 0' }}>
+      <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
+        <h2 className="section-title">About Us</h2>
+        <p className="section-subtitle">
+          Spectrum Digital is Pakistan's leading provider of professional AV and digital display solutions. 
+          With years of experience in the industry, we specialize in high-impact LED and SMD screens for 
+          shopping malls, highways, retail stores, and massive public events. Our mission is to transform 
+          spaces into unforgettable visual experiences using top-tier hardware and seamless installation services.
+        </p>
+      </div>
+    </section>
+  )
+}
+
 function Home({ openQuote }) {
   return (
     <>
       <Hero openQuote={openQuote} />
+      <AboutUs />
       <Brands />
       <Projects />
       <Products />
