@@ -13,7 +13,7 @@ const Navbar = ({ openQuote }) => {
         <div className="container top-bar-container">
           <div className="top-bar-left">
             <Phone size={14} />
-            <span>+92 301 2224333</span>
+            <span> +92 333 4727284</span>
           </div>
           <div className="top-bar-center">
             <div className="marquee">

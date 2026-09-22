@@ -55,11 +55,11 @@ export default function Contact() {
               Let"s Talk
             </h2>
             <p style={{ color: "var(--text-muted)", lineHeight: 1.7, marginBottom: "40px" }}>
-              Whether you need a quote, a technical question, or want to schedule a site survey — we are here.
+              Whether you need a quote, a technical question, or want to schedule a site survey ï¿½ we are here.
             </p>
 
             {[
-              { icon: <Phone size={20} />, label: "Phone", value: "+92 301 2224333", href: "tel:+923012224333" },
+              { icon: <Phone size={20} />, label: "Phone", value: " +92 333 4727284", href: "tel:+923012224333" },
               { icon: <Mail size={20} />, label: "Email", value: "info@spectrumscreens.com", href: "mailto:info@spectrumscreens.com" },
               { icon: <MapPin size={20} />, label: "Address", value: "106-G Commercial Phase, Main Office, Pakistan", href: null },
             ].map((item, i) => (

@@ -23,13 +23,13 @@ const Hero = ({ openQuote }) => {
 
   return (
     <section className="hero">
-      <video 
+      <video
         ref={videoRef}
-        className="hero-video" 
-        autoPlay 
-        loop 
-        muted={isMuted} 
-        playsInline 
+        className="hero-video"
+        autoPlay
+        loop
+        muted={isMuted}
+        playsInline
         poster="/image/hero_bg.jpg"
       >
         <source src="/image/Video.mp4" type="video/mp4" />
@@ -40,7 +40,7 @@ const Hero = ({ openQuote }) => {
       </button>
 
       <div className="container">
-        <motion.div 
+        <motion.div
           className="hero-content"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -50,12 +50,12 @@ const Hero = ({ openQuote }) => {
           <h1>Command Attention.<br />Deliver <span>Impact.</span></h1>
           <p>Transform any environment with our ultra-bright, high-definition LED & SMD displays. Built for shopping malls, retail spaces, and massive outdoor advertising. Available for permanent installation or rental.</p>
           <div className="hero-actions">
-            <button className="btn btn-primary" onClick={openQuote}>Get a Quote <ArrowRight size={16} style={{marginLeft: '8px'}} /></button>
-            <button className="btn btn-outline"><Play size={16} style={{marginRight: '8px', fill: 'currentColor'}} /> Watch Video</button>
+            <button className="btn btn-primary" onClick={openQuote}>Get a Quote <ArrowRight size={16} style={{ marginLeft: '8px' }} /></button>
+            <button className="btn btn-outline"><Play size={16} style={{ marginRight: '8px', fill: 'currentColor' }} /> Watch Video</button>
           </div>
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="hero-features"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ const Brands = () => {
   ];
 
   return (
-    <motion.section 
+    <motion.section
       className="brands"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
@@ -113,11 +113,11 @@ const Brands = () => {
           <div className="brands-track">
             {/* First Set */}
             {logos.map((logo, i) => (
-              <img key={`logo-1-${i}`} src={logo.src} alt={logo.alt} style={{height: '90px', objectFit: 'contain', padding: '0 20px'}} onError={(e) => { e.target.style.display = 'none' }} />
+              <img key={`logo-1-${i}`} src={logo.src} alt={logo.alt} style={{ height: '90px', objectFit: 'contain', padding: '0 20px' }} onError={(e) => { e.target.style.display = 'none' }} />
             ))}
             {/* Duplicate Set for Infinite Scroll */}
             {logos.map((logo, i) => (
-              <img key={`logo-2-${i}`} src={logo.src} alt={logo.alt} style={{height: '90px', objectFit: 'contain', padding: '0 20px'}} onError={(e) => { e.target.style.display = 'none' }} />
+              <img key={`logo-2-${i}`} src={logo.src} alt={logo.alt} style={{ height: '90px', objectFit: 'contain', padding: '0 20px' }} onError={(e) => { e.target.style.display = 'none' }} />
             ))}
           </div>
         </div>
@@ -130,7 +130,7 @@ const Products = () => {
   return (
     <section id="products" className="bento-section">
       <div className="container">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -140,9 +140,9 @@ const Products = () => {
           <h2 style={{ fontSize: '36px', fontWeight: 800, marginBottom: '15px' }}>Premium Hardware</h2>
           <p style={{ color: 'var(--text-muted)', fontSize: '18px', maxWidth: '600px', margin: '0 auto' }}>Discover our range of professional AV equipment, designed for stunning clarity and relentless reliability.</p>
         </motion.div>
-        
+
         <div className="bento-grid">
-          <motion.div 
+          <motion.div
             className="bento-card bento-large"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -156,13 +156,13 @@ const Products = () => {
               <button className="btn-bento">Explore Series</button>
             </div>
           </motion.div>
-          
-          <motion.div 
-             className="bento-card"
-             initial={{ opacity: 0, scale: 0.95 }}
-             whileInView={{ opacity: 1, scale: 1 }}
-             viewport={{ once: true, margin: "-50px" }}
-             transition={{ duration: 0.6, delay: 0.2 }}
+
+          <motion.div
+            className="bento-card"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <img src="/image/products/novastar_controller.jpg" alt="Novastar Controllers" />
             <div className="bento-content">
@@ -170,8 +170,8 @@ const Products = () => {
               <p>Industry-standard processing for seamless playback.</p>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="bento-card"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -210,7 +210,7 @@ const Reviews = () => {
         <div className="reviews-header">
           <div className="avatar-group-container">
             <div className="avatar-group">
-              {reviews.slice(0,6).map((r, i) => (
+              {reviews.slice(0, 6).map((r, i) => (
                 <img key={i} src={r.avatar} className="avatar-circle" alt="reviewer" />
               ))}
               <div className="avatar-circle more-count">+4</div>
@@ -226,7 +226,7 @@ const Reviews = () => {
             {[...reviews, ...reviews].map((r, i) => (
               <div className="review-card" key={i}>
                 <div className="review-stars">
-                  {[1,2,3,4,5].map(s => <Star key={s} size={16} fill="#e2b005" color="#e2b005" />)}
+                  {[1, 2, 3, 4, 5].map(s => <Star key={s} size={16} fill="#e2b005" color="#e2b005" />)}
                 </div>
                 <p className="review-text">"{r.review}"</p>
                 <div className="review-author">
@@ -267,7 +267,7 @@ const Projects = () => {
   }));
 
   return (
-    <motion.section 
+    <motion.section
       className="projects bg-transparent" id="projects"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -280,11 +280,11 @@ const Projects = () => {
           <h2 className="section-title" style={{ fontSize: '48px', color: 'var(--text-dark)' }}>Featured Projects</h2>
           <p className="section-subtitle" style={{ fontSize: '20px', color: '#333' }}>Take a look at some of our recent installations and see how we help brands stand out.</p>
         </div>
-        
-        <InteractiveCardGallery 
-          cards={galleryCards} 
-          columns={2} 
-          cardHeight="h-[450px]" 
+
+        <InteractiveCardGallery
+          cards={galleryCards}
+          columns={2}
+          cardHeight="h-[450px]"
         />
       </div>
     </motion.section>
@@ -297,7 +297,7 @@ const ProcessSection = () => {
       <div className="container">
         <h2 className="section-title">How It Works</h2>
         <p className="section-subtitle">A seamless end-to-end process ensuring flawless execution for every display project.</p>
-        
+
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '50px' }}>
           {[
             { step: '01', title: 'Consultation & Strategy', desc: 'We analyze your space, lighting conditions, and business goals to recommend the perfect display technology.' },
@@ -394,7 +394,7 @@ const FaqSection = () => {
 const CallToAction = ({ openQuote }) => {
   return (
     <section className="cta-section">
-      <Hyperspeed 
+      <Hyperspeed
         effectOptions={{
           distortion: 'turbulentDistortion',
           length: 400,
@@ -435,7 +435,7 @@ const CallToAction = ({ openQuote }) => {
         <div className="cta-content">
           <h2>Ready to Accelerate Your Brand?</h2>
           <p>Join hundreds of businesses across Pakistan who trust us for their high-impact visual displays.</p>
-          <button className="btn btn-primary" onClick={openQuote}>Get a Custom Quote <ArrowRight size={16} style={{marginLeft: '8px', verticalAlign: 'middle'}} /></button>
+          <button className="btn btn-primary" onClick={openQuote}>Get a Custom Quote <ArrowRight size={16} style={{ marginLeft: '8px', verticalAlign: 'middle' }} /></button>
         </div>
       </div>
     </section>
@@ -447,7 +447,7 @@ const Footer = () => (
     <div className="container">
       <div className="footer-grid">
         <div>
-          <img src="/image/Logo.png" alt="Logo" style={{height: '40px', marginBottom: '20px', filter: 'brightness(0) invert(1)'}} />
+          <img src="/image/Logo.png" alt="Logo" style={{ height: '40px', marginBottom: '20px', filter: 'brightness(0) invert(1)' }} />
           <p>We are a leading provider of professional AV and digital display solutions, delivering excellence to clients nationwide.</p>
         </div>
         <div>
@@ -462,9 +462,9 @@ const Footer = () => (
         <div>
           <h4>Contact Info</h4>
           <ul>
-            <li style={{display: 'flex', gap: '10px'}}><MapPin size={16} /> 106-G Commercial Phase, Main Office</li>
-            <li style={{display: 'flex', gap: '10px'}}><Phone size={16} /> +92 301 2224333</li>
-            <li style={{display: 'flex', gap: '10px'}}><Mail size={16} /> info@spectrumscreens.com</li>
+            <li style={{ display: 'flex', gap: '10px' }}><MapPin size={16} /> 106-G Commercial Phase, Main Office</li>
+            <li style={{ display: 'flex', gap: '10px' }}><Phone size={16} />  +92 333 4727284</li>
+            <li style={{ display: 'flex', gap: '10px' }}><Mail size={16} /> info@spectrumscreens.com</li>
           </ul>
         </div>
       </div>
@@ -483,9 +483,9 @@ const AboutUs = () => {
       <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
         <h2 className="section-title">About Us</h2>
         <p className="section-subtitle">
-          Spectrum Digital is Pakistan's leading provider of professional AV and digital display solutions. 
-          With years of experience in the industry, we specialize in high-impact LED and SMD screens for 
-          shopping malls, highways, retail stores, and massive public events. Our mission is to transform 
+          Spectrum Digital is Pakistan's leading provider of professional AV and digital display solutions.
+          With years of experience in the industry, we specialize in high-impact LED and SMD screens for
+          shopping malls, highways, retail stores, and massive public events. Our mission is to transform
           spaces into unforgettable visual experiences using top-tier hardware and seamless installation services.
         </p>
       </div>
