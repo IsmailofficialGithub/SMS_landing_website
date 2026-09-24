@@ -8,6 +8,7 @@ import Products from './pages/Products'
 import Blog from './pages/Blog'
 import About from './pages/About'
 import Contact from './pages/Contact'
+import Gallery from './pages/Gallery'
 import Navbar from './components/Navbar'
 import QuoteModal from './components/QuoteModal'
 
@@ -46,6 +47,8 @@ function App() {
         <Route path="/" element={<Home openQuote={() => setIsQuoteOpen(true)} />} />
         <Route path="/project/:id" element={<ProjectDetails />} />
         <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/gallery" element={<Gallery openQuote={() => setIsQuoteOpen(true)} />} />
+        <Route path="/our-work" element={<Gallery openQuote={() => setIsQuoteOpen(true)} />} />
         <Route path="/products" element={<Products />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />

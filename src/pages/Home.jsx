@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import BeamCircle from '../components/lightswind/beam-circle'
 import { InteractiveCardGallery } from '../components/lightswind/interactive-card-gallery'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '../components/lightswind/accordion'
+import LiveWorkShowcase from '../components/LiveWorkShowcase'
 
 // Navbar moved to global App level
 
@@ -371,15 +372,18 @@ const Projects = () => {
 
         {/* View All Button */}
         <motion.div
-          style={{ textAlign: 'center', marginTop: '60px' }}
+          style={{ textAlign: 'center', marginTop: '60px', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <a href="/#projects" className="btn btn-outline" style={{ borderRadius: '50px', padding: '14px 40px', fontSize: '15px', fontWeight: 600 }}>
-            View All Projects →
-          </a>
+          <Link to="/projects" className="btn btn-outline" style={{ borderRadius: '50px', padding: '14px 32px', fontSize: '15px', fontWeight: 600 }}>
+            View Case Studies →
+          </Link>
+          <Link to="/gallery" className="btn btn-primary" style={{ borderRadius: '50px', padding: '14px 32px', fontSize: '15px', fontWeight: 600 }}>
+            Browse Live Gallery (60+ Photos) →
+          </Link>
         </motion.div>
       </div>
     </section>
@@ -549,10 +553,11 @@ const Footer = () => (
         <div>
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Our Projects</a></li>
-            <li><a href="#">Products</a></li>
-            <li><a href="#">Contact Support</a></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/gallery">Installation Gallery</Link></li>
+            <li><Link to="/projects">Our Projects</Link></li>
+            <li><Link to="/products">Products</Link></li>
+            <li><Link to="/contact">Contact Support</Link></li>
           </ul>
         </div>
         <div>
@@ -595,6 +600,7 @@ function Home({ openQuote }) {
       <Hero openQuote={openQuote} />
       <AboutUs />
       <Brands />
+      <LiveWorkShowcase openQuote={openQuote} />
       <Projects />
       <Products />
       <Reviews />

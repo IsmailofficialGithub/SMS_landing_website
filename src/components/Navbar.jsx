@@ -54,6 +54,9 @@ const Navbar = ({ openQuote }) => {
               <Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>Blog</Link>
             </li>
             <li>
+              <Link to="/gallery" className={location.pathname === '/gallery' ? 'active' : ''}>Gallery</Link>
+            </li>
+            <li>
               <Link to="/projects" className={location.pathname === '/projects' ? 'active' : ''}>Projects</Link>
             </li>
             <li>
