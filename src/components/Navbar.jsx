@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Phone, ChevronDown } from 'lucide-react';
+import { Phone } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = ({ openQuote }) => {
@@ -8,7 +8,6 @@ const Navbar = ({ openQuote }) => {
 
   return (
     <header className="header">
-      {/* Top Bar */}
       <div className="top-bar">
         <div className="container top-bar-container">
           <div className="top-bar-left">
@@ -37,7 +36,6 @@ const Navbar = ({ openQuote }) => {
         </div>
       </div>
 
-      {/* Main Navbar */}
       <nav className="main-navbar">
         <div className="container nav-container">
           <div className="nav-logo">
