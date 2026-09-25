@@ -31,7 +31,7 @@ export default function Contact() {
       <div style={{
         position: "relative",
         background: "radial-gradient(ellipse 80% 60% at 50% -20%, rgba(0, 102, 255, 0.45) 0%, rgba(0, 163, 255, 0.15) 40%, rgba(5, 11, 24, 0.98) 85%, #050b18 100%)",
-        padding: "130px 20px 85px",
+        padding: "clamp(90px, 12vw, 130px) 16px clamp(40px, 8vw, 85px)",
         textAlign: "center",
         color: "#fff",
         overflow: "hidden",
@@ -85,7 +85,7 @@ export default function Contact() {
           </div>
 
           <h1 style={{
-            fontSize: "clamp(40px, 6vw, 66px)",
+            fontSize: "clamp(34px, 5.5vw, 66px)",
             fontWeight: 900,
             fontFamily: "var(--font-heading)",
             lineHeight: 1.1,
@@ -104,7 +104,7 @@ export default function Contact() {
           </h1>
 
           <p style={{
-            fontSize: "clamp(16px, 2vw, 19px)",
+            fontSize: "clamp(15px, 2vw, 19px)",
             color: "#cbd5e1",
             maxWidth: "640px",
             margin: "0 auto 36px",
@@ -150,8 +150,8 @@ export default function Contact() {
         </motion.div>
       </div>
 
-      <div className="container" style={{ maxWidth: "1100px", paddingTop: "80px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1.6fr", gap: "60px", alignItems: "start" }}>
+      <div className="container" style={{ maxWidth: "1100px", paddingTop: "clamp(40px, 6vw, 80px)" }}>
+        <div className="contact-layout-grid">
 
           <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
             <h2 style={{ fontSize: "28px", fontWeight: 700, color: "var(--text-dark)", marginBottom: "10px", fontFamily: "var(--font-heading)" }}>
@@ -203,12 +203,12 @@ export default function Contact() {
                 <p style={{ color: "var(--text-muted)", fontSize: "16px" }}>Our team will get back to you within 24 hours.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ background: "#fff", borderRadius: "20px", boxShadow: "var(--shadow-lg)", padding: "48px", border: "1px solid rgba(0,0,0,0.06)" }}>
+              <form onSubmit={handleSubmit} style={{ background: "#fff", borderRadius: "20px", boxShadow: "var(--shadow-lg)", padding: "clamp(24px, 5vw, 48px)", border: "1px solid rgba(0,0,0,0.06)" }}>
                 <h3 style={{ fontSize: "24px", fontWeight: 700, color: "var(--text-dark)", marginBottom: "32px", fontFamily: "var(--font-heading)" }}>
                   Send a Message
                 </h3>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+                <div className="contact-form-row">
                   <label style={labelStyle}>
                     Full Name *
                     <input name="name" required value={form.name} onChange={handleChange} placeholder="e.g. Ahmed Khan" style={inputStyle} />
@@ -219,7 +219,7 @@ export default function Contact() {
                   </label>
                 </div>
 
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px", marginBottom: "20px" }}>
+                <div className="contact-form-row">
                   <label style={labelStyle}>
                     Phone
                     <input name="phone" value={form.phone} onChange={handleChange} placeholder="+92 300 0000000" style={inputStyle} />

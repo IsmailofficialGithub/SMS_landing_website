@@ -321,12 +321,12 @@ const Projects = () => {
   ]
 
   return (
-    <section id="projects" style={{ padding: '120px 0', backgroundColor: '#f8fafc' }}>
+    <section id="projects" style={{ padding: 'clamp(50px, 8vw, 120px) 0', backgroundColor: '#f8fafc' }}>
       <div className="container" style={{ maxWidth: '1300px' }}>
 
         {/* Section Header */}
         <motion.div
-          style={{ textAlign: 'center', marginBottom: '70px' }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(36px, 6vw, 70px)' }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-60px' }}
@@ -347,17 +347,17 @@ const Projects = () => {
           >
             Our Work
           </motion.span>
-          <h2 style={{ fontSize: '48px', fontWeight: 800, color: 'var(--text-dark)', fontFamily: 'var(--font-heading)', lineHeight: 1.1, marginBottom: '16px' }}>
+          <h2 style={{ fontSize: 'clamp(28px, 5.5vw, 48px)', fontWeight: 800, color: 'var(--text-dark)', fontFamily: 'var(--font-heading)', lineHeight: 1.15, marginBottom: '16px' }}>
             Featured Projects
           </h2>
-          <p style={{ fontSize: '18px', color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto', lineHeight: 1.6 }}>
             Take a look at some of our recent installations and see how we help brands stand out.
           </p>
         </motion.div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
           gap: '24px',
         }}>
           {projectList.map((proj, idx) => (
@@ -372,16 +372,16 @@ const Projects = () => {
 
         {/* View All Button */}
         <motion.div
-          style={{ textAlign: 'center', marginTop: '60px', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}
+          style={{ textAlign: 'center', marginTop: 'clamp(36px, 5vw, 60px)', display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap' }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Link to="/projects" className="btn btn-outline" style={{ borderRadius: '50px', padding: '14px 32px', fontSize: '15px', fontWeight: 600 }}>
+          <Link to="/projects" className="btn btn-outline" style={{ borderRadius: '50px', padding: '12px 28px', fontSize: '14px', fontWeight: 600 }}>
             View Case Studies →
           </Link>
-          <Link to="/gallery" className="btn btn-primary" style={{ borderRadius: '50px', padding: '14px 32px', fontSize: '15px', fontWeight: 600 }}>
+          <Link to="/gallery" className="btn btn-primary" style={{ borderRadius: '50px', padding: '12px 28px', fontSize: '14px', fontWeight: 600 }}>
             Browse Live Gallery (60+ Photos) →
           </Link>
         </motion.div>
@@ -393,21 +393,21 @@ const Projects = () => {
 
 const ProcessSection = () => {
   return (
-    <section className="section bg-light-gray" style={{ padding: '100px 0' }}>
+    <section className="section bg-light-gray" style={{ padding: 'clamp(50px, 8vw, 100px) 0' }}>
       <div className="container">
         <h2 className="section-title">How It Works</h2>
         <p className="section-subtitle">A seamless end-to-end process ensuring flawless execution for every display project.</p>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '50px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '24px', marginTop: 'clamp(30px, 5vw, 50px)' }}>
           {[
             { step: '01', title: 'Consultation & Strategy', desc: 'We analyze your space, lighting conditions, and business goals to recommend the perfect display technology.' },
             { step: '02', title: 'Custom Installation', desc: 'Our expert engineers handle the fabrication, wiring, and structural installation with zero disruption to your business.' },
             { step: '03', title: 'Content & Support', desc: 'We provide training on content management software and offer 24/7 technical support to keep you shining.' }
           ].map((item, i) => (
-            <div key={i} style={{ backgroundColor: 'var(--bg-white)', padding: '40px', borderRadius: '16px', boxShadow: 'var(--shadow-sm)', position: 'relative' }}>
+            <div key={i} style={{ backgroundColor: 'var(--bg-white)', padding: 'clamp(22px, 4vw, 40px)', borderRadius: '16px', boxShadow: 'var(--shadow-sm)', position: 'relative' }}>
               <div style={{ fontSize: '64px', fontWeight: '900', color: 'rgba(0,102,255,0.1)', position: 'absolute', top: '20px', right: '30px', lineHeight: '1' }}>{item.step}</div>
-              <h3 style={{ fontSize: '24px', marginBottom: '15px', color: 'var(--text-dark)', position: 'relative', zIndex: 1 }}>{item.title}</h3>
-              <p style={{ color: '#475569', lineHeight: '1.6', position: 'relative', zIndex: 1 }}>{item.desc}</p>
+              <h3 style={{ fontSize: '22px', marginBottom: '12px', color: 'var(--text-dark)', position: 'relative', zIndex: 1 }}>{item.title}</h3>
+              <p style={{ color: '#475569', lineHeight: '1.6', position: 'relative', zIndex: 1, fontSize: '15px' }}>{item.desc}</p>
             </div>
           ))}
         </div>
@@ -427,7 +427,7 @@ const FaqSection = () => {
   ];
 
   return (
-    <section className="section" style={{ backgroundColor: 'var(--bg-white)', padding: '100px 0' }}>
+    <section className="section" style={{ backgroundColor: 'var(--bg-white)', padding: 'clamp(50px, 8vw, 100px) 0' }}>
       <div className="container" style={{ maxWidth: '800px' }}>
         <div style={{ textAlign: 'center', marginBottom: '50px' }}>
           <h2 className="section-title">Frequently Asked Questions</h2>
@@ -580,7 +580,7 @@ const Footer = () => (
 
 const AboutUs = () => {
   return (
-    <section id="about" className="section bg-light-gray" style={{ padding: '100px 0' }}>
+    <section id="about" className="section bg-light-gray" style={{ padding: 'clamp(50px, 8vw, 100px) 0' }}>
       <div className="container" style={{ textAlign: 'center', maxWidth: '800px' }}>
         <h2 className="section-title">About Us</h2>
         <p className="section-subtitle">

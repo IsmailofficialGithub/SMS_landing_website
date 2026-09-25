@@ -4,6 +4,12 @@
   position: relative;
 }
 
+@media (max-width: 768px) {
+  .live-work-section {
+    padding: 60px 0;
+  }
+}
+
 .live-work-header {
   display: flex;
   justify-content: space-between;
@@ -29,7 +35,7 @@
 }
 
 .live-work-title {
-  font-size: clamp(28px, 4.5vw, 42px);
+  font-size: clamp(26px, 4.5vw, 42px);
   font-weight: 800;
   color: #0f172a;
   line-height: 1.2;
@@ -37,7 +43,7 @@
 }
 
 .live-work-subtitle {
-  font-size: 16px;
+  font-size: clamp(14px, 2vw, 16px);
   color: #64748b;
   max-width: 600px;
   line-height: 1.6;
@@ -56,7 +62,7 @@
 
 .live-work-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 24px;
 }
 
@@ -202,5 +208,19 @@
   .live-work-header {
     flex-direction: column;
     align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 30px;
+  }
+
+  .live-work-all-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .live-work-browse-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 20px;
+    font-size: 14px;
   }
 }

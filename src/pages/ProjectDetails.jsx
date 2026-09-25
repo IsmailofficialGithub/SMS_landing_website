@@ -73,8 +73,8 @@ export default function ProjectDetails() {
 
   return (
     <div className="project-details-page" style={{ backgroundColor: 'var(--bg-white)', color: 'var(--text-dark)', minHeight: '100vh', paddingBottom: '100px' }}>
-      <div className="container" style={{ paddingTop: '80px' }}>
-        <a href="/#projects" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', textDecoration: 'none', marginBottom: '40px', fontWeight: '500', cursor: 'pointer' }}>
+      <div className="container" style={{ paddingTop: 'clamp(30px, 5vw, 60px)' }}>
+        <a href="/#projects" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', textDecoration: 'none', marginBottom: '30px', fontWeight: '500', cursor: 'pointer' }}>
           <ArrowLeft size={16} /> Back to Projects
         </a>
         
@@ -83,10 +83,10 @@ export default function ProjectDetails() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 style={{ fontSize: '48px', marginBottom: '20px', color: 'var(--text-dark)', fontFamily: 'var(--font-heading)' }}>{project.title}</h1>
-          <p style={{ fontSize: '20px', color: 'var(--text-muted)', marginBottom: '40px', maxWidth: '800px', lineHeight: '1.6' }}>{project.desc}</p>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 46px)', marginBottom: '16px', color: 'var(--text-dark)', fontFamily: 'var(--font-heading)', lineHeight: 1.15 }}>{project.title}</h1>
+          <p style={{ fontSize: 'clamp(15px, 2vw, 19px)', color: 'var(--text-muted)', marginBottom: '32px', maxWidth: '800px', lineHeight: '1.6' }}>{project.desc}</p>
           
-          <div style={{ width: '100%', height: '500px', borderRadius: '16px', overflow: 'hidden', marginBottom: '50px', boxShadow: 'var(--shadow-md)' }}>
+          <div style={{ width: '100%', height: 'clamp(240px, 45vw, 480px)', borderRadius: '16px', overflow: 'hidden', marginBottom: '40px', boxShadow: 'var(--shadow-md)' }}>
             <img 
               src={project.image} 
               alt={project.title} 
@@ -95,14 +95,14 @@ export default function ProjectDetails() {
             />
           </div>
 
-          <div className="project-info" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '40px', marginTop: '50px' }}>
+          <div className="project-info">
             <div>
-              <h2 style={{ fontSize: '32px', marginBottom: '20px', color: 'var(--text-dark)' }}>Project Overview</h2>
-              <p style={{ fontSize: '18px', color: '#475569', lineHeight: '1.8' }}>{project.details}</p>
+              <h2 style={{ fontSize: 'clamp(22px, 3.5vw, 30px)', marginBottom: '16px', color: 'var(--text-dark)' }}>Project Overview</h2>
+              <p style={{ fontSize: '16px', color: '#475569', lineHeight: '1.8' }}>{project.details}</p>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               {/* Specs Card */}
-              <div style={{ backgroundColor: 'var(--bg-light)', padding: '30px', borderRadius: '12px' }}>
+              <div style={{ backgroundColor: 'var(--bg-light)', padding: 'clamp(20px, 4vw, 30px)', borderRadius: '12px' }}>
                 <h3 style={{ marginBottom: '20px', color: 'var(--text-dark)', fontSize: '18px', fontWeight: 700 }}>Project Specs</h3>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {Object.entries(project.specs || {}).map(([key, val]) => (

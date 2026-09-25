@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, MapPin, Sparkles, Maximize2, X, Phone } from 'lucide-react';
 import { workGalleryItems } from '../data/workGalleryData';
 import './LiveWorkShowcase.css';
+import '../pages/Gallery.css';
 
 export default function LiveWorkShowcase({ openQuote }) {
   const [selectedItem, setSelectedItem] = useState(null);

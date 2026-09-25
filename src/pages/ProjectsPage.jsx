@@ -16,21 +16,21 @@ export default function ProjectsPage() {
     <div style={{ backgroundColor: 'var(--bg-white)', minHeight: '100vh', paddingBottom: '100px' }}>
       <div style={{
         background: 'linear-gradient(135deg, #0a0a1a 0%, #0d1b4b 50%, #0a0a1a 100%)',
-        padding: '120px 0 80px',
+        padding: 'clamp(80px, 10vw, 120px) 0 clamp(40px, 6vw, 80px)',
         textAlign: 'center',
         color: 'white'
       }}>
         <div className="container">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
             <span style={{ display: 'inline-block', background: 'rgba(0,200,255,0.15)', border: '1px solid rgba(0,200,255,0.3)', color: '#00c8ff', padding: '6px 18px', borderRadius: '999px', fontSize: '13px', fontWeight: 600, marginBottom: '20px', letterSpacing: '1px' }}>OUR PORTFOLIO</span>
-            <h1 style={{ fontSize: 'clamp(36px, 6vw, 64px)', fontWeight: 900, marginBottom: '20px', lineHeight: 1.1 }}>Featured Projects</h1>
-            <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto' }}>Real installations for real brands — from retail giants to live concerts.</p>
+            <h1 style={{ fontSize: 'clamp(32px, 5.5vw, 64px)', fontWeight: 900, marginBottom: '20px', lineHeight: 1.15 }}>Featured Projects</h1>
+            <p style={{ fontSize: 'clamp(15px, 2vw, 18px)', color: 'rgba(255,255,255,0.7)', maxWidth: '600px', margin: '0 auto', lineHeight: 1.6 }}>Real installations for real brands — from retail giants to live concerts.</p>
           </motion.div>
         </div>
       </div>
 
-      <div className="container" style={{ marginTop: '70px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', gap: '30px' }}>
+      <div className="container" style={{ marginTop: 'clamp(40px, 6vw, 70px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '24px' }}>
           {projectList.map((proj, i) => (
             <motion.div
               key={i}
