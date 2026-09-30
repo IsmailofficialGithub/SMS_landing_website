@@ -563,8 +563,9 @@ const Footer = () => (
         <div>
           <h4>Contact Info</h4>
           <ul>
-            <li style={{ display: 'flex', gap: '10px' }}><MapPin size={16} /> 106-G Commercial Phase, Main Office</li>
+            <li style={{ display: 'flex', gap: '10px', alignItems: 'flex-start' }}><MapPin size={16} style={{flexShrink: 0, marginTop: '4px'}} /> <span>Sf 442 Deans trade center peshwar</span></li>
             <li style={{ display: 'flex', gap: '10px' }}><Phone size={16} />  +92 333 4727284</li>
+            <li style={{ display: 'flex', gap: '10px' }}><Phone size={16} />  +92 331 1164414</li>
             <li style={{ display: 'flex', gap: '10px' }}><Mail size={16} /> info@spectrumscreens.com</li>
           </ul>
         </div>

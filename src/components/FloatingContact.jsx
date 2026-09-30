@@ -36,9 +36,18 @@ const FloatingContact = () => {
             <motion.a href="tel:+923334727284" className="floating-item bg-phone" variants={itemVariants} aria-label="Phone" title="Phone">
               <Phone size={24} color="white" fill="white" />
             </motion.a>
-            <motion.a href="https://wa.me/923334727284" className="floating-item bg-whatsapp" variants={itemVariants} aria-label="WhatsApp" title="WhatsApp">
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-            </motion.a>
+            <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+              <a href="https://wa.me/923334727284" className="floating-item bg-whatsapp" aria-label="WhatsApp 1" title="WhatsApp: 03334727284">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </a>
+              <span style={{ fontSize: '12px', fontWeight: '600', color: '#25D366', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>WhatsApp</span>
+            </motion.div>
+            <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px' }}>
+              <a href="https://wa.me/923311164414" className="floating-item bg-whatsapp" aria-label="WhatsApp 2" title="WhatsApp: 03311164414">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+              </a>
+              <span style={{ fontSize: '12px', fontWeight: '600', color: '#25D366', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>WhatsApp</span>
+            </motion.div>
             <motion.a href="mailto:info@spectrumscreens.com" className="floating-item bg-mail" variants={itemVariants} aria-label="Mail" title="Email">
               <Mail size={24} color="white" />
             </motion.a>
